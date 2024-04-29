@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  bgcolor="aqua">
+    <h1>Toggle Button</h1>
+    
+</body>
+</html>
+
+
+
+<button id="toggle-button">Toggle Jumping</button>
+<div id="ball"></div>
+
+<script>
+  const toggleButton = document.querySelector("#toggle-button");
+  const ball = document.querySelector("#ball");
+
+  let isJumping = false;
+
+  toggleButton.addEventListener("click", () => {
+    isJumping = !isJumping;
+
+    if (isJumping) {
+      ball.classList.add("jumping");
+    } else {
+      ball.classList.remove("jumping");
+    }
+  });
+</script>
+
+<style>
+  #ball {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .jumping {
+    animation: jump 1s infinite;
+  }
+
+  @keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-200px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
+
+
+
